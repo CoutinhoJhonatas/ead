@@ -2,6 +2,7 @@ package com.ead.authuser.services;
 
 import com.ead.authuser.dtos.UserRecordDto;
 import com.ead.authuser.models.UserModel;
+import com.ead.authuser.specification.SpecificationTemplate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,7 +13,7 @@ public interface UserService {
 
     List<UserModel> findAll();
 
-    Page<UserModel> findAll(Pageable pageable);
+    Page<UserModel> findAll(SpecificationTemplate.UserSpec userSpec, Pageable pageable);
 
     UserModel findById(UUID userId);
 

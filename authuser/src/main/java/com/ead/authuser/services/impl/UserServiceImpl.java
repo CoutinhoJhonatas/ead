@@ -7,6 +7,7 @@ import com.ead.authuser.exceptions.NotFoundException;
 import com.ead.authuser.models.UserModel;
 import com.ead.authuser.repositories.UserRepository;
 import com.ead.authuser.services.UserService;
+import com.ead.authuser.specification.SpecificationTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,8 +34,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page<UserModel> findAll(Pageable pageable) {
-        return userRepository.findAll(pageable);
+    public Page<UserModel> findAll(SpecificationTemplate.UserSpec userSpec, Pageable pageable) {
+        return userRepository.findAll(userSpec, pageable);
     }
 
     @Override
